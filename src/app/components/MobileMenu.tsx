@@ -39,9 +39,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
       {/* Slide-in Menu */}
       <div
-        className={`fixed left-0 top-0 bottom-0 z-[9999] w-64 md:w-72 transition-transform duration-300 ease-in-out transform ${
+        className={`fixed inset-y-0 left-0 z-[9999] w-72 transition-all duration-300 ease-in-out overflow-y-auto ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
-        } ${isDark ? 'bg-slate-800' : 'bg-white'} shadow-lg overflow-y-auto`}
+        } ${isDark ? 'bg-slate-800' : 'bg-white'} shadow-2xl`}
+        style={{ top: '64px' }}
       >
         {/* Close Button */}
         <div className="p-4 flex justify-between items-center border-b">
@@ -59,7 +60,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         </div>
 
         {/* Navigation Items */}
-        <nav className="px-4 space-y-1">
+        <nav className="px-2 py-4 space-y-1">
           {navItems.map((item) => (
             <button
               key={item.path}
@@ -76,7 +77,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         </nav>
 
         {/* Donate Button */}
-        <div className="p-4 mt-4 border-t">
+        <div className="p-2 mt-4 border-t">
           <button
             onClick={() => handleNavigate('/donate')}
             className="w-full px-4 py-3 rounded-lg font-semibold text-base text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transition-all duration-200 active:scale-95"
