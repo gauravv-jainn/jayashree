@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "name": "Rajesh Kumar",
+    "role": "Founder & President",
+    "bio": "Dedicated social entrepreneur with 15+ years of experience in community development",
+    "photoUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+    "email": "rajesh@jayashreefoundation.org",
+    "linkedIn": "https://linkedin.com/in/rajesh-kumar"
+  },
+  {
+    "id": "2",
+    "name": "Priya Singh",
+    "role": "Director, Education Program",
+    "bio": "Education specialist focused on providing quality learning opportunities",
+    "photoUrl": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400",
+    "email": "priya@jayashreefoundation.org",
+    "linkedIn": "https://linkedin.com/in/priya-singh"
+  },
+  {
+    "id": "3",
+    "name": "Amit Patel",
+    "role": "Healthcare Coordinator",
+    "bio": "Healthcare professional working to improve access to medical services",
+    "photoUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400",
+    "email": "amit@jayashreefoundation.org",
+    "linkedIn": "https://linkedin.com/in/amit-patel"
+  }
+]
