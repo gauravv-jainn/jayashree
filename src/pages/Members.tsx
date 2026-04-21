@@ -41,8 +41,8 @@ export default function Members() {
       <Header />
 
       <main className="flex-1">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 pt-32 pb-12">
-          <h1 className={`text-4xl md:text-5xl font-bold mb-4 transition-colors duration-200 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+        <div className="max-w-7xl mx-auto px-4 md:px-8 pt-20 md:pt-32 pb-12">
+          <h1 className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 transition-colors duration-200 ${isDark ? 'text-white' : 'text-slate-900'}`}>
             Our Team
           </h1>
           <p className={`text-lg transition-colors duration-200 mb-12 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
@@ -66,7 +66,7 @@ export default function Members() {
                     isDark ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'
                   }`}
                 >
-                  <div className="relative w-full h-64 bg-slate-300">
+                  <div className="relative w-full h-48 md:h-64 bg-slate-300">
                     {member.photoUrl && (
                       <img
                         src={member.photoUrl}

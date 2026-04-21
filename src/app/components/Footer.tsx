@@ -24,7 +24,7 @@ export function Footer() {
     }`}>
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-12">
         {/* Top Section: Company Info + Quick Links + Social */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mb-8">
           {/* Company Info */}
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3">
@@ -79,7 +79,7 @@ export function Footer() {
             <h3 className={`text-sm font-semibold mb-4 transition-colors duration-200 ${
               isDark ? 'text-white' : 'text-slate-900'
             }`}>Follow Us</h3>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 md:gap-3">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (

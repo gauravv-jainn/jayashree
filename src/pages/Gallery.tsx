@@ -41,9 +41,9 @@ export default function Gallery() {
       <Header />
 
       <main className="flex-1">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 pt-32 pb-12">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 pt-20 md:pt-32 pb-12">
           <div className="mb-12">
-            <h1 className={`text-4xl md:text-5xl font-bold mb-4 transition-colors duration-200 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+            <h1 className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 transition-colors duration-200 ${isDark ? 'text-white' : 'text-slate-900'}`}>
               Gallery
             </h1>
             <p className={`text-lg transition-colors duration-200 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
@@ -77,7 +77,7 @@ export default function Gallery() {
                   </div>
                   <div className="p-4 md:p-6">
                     <div className="flex items-center justify-between gap-3 mb-3">
-                      <span className="text-xs font-semibold bg-green-600 text-white px-3 py-1 rounded-full whitespace-nowrap capitalize">
+                      <span className="text-xs font-semibold bg-green-600 text-white px-3 py-1 rounded-full truncate capitalize">
                         {image.category}
                       </span>
                       <span className={`text-xs md:text-sm transition-colors duration-200 flex-shrink-0 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>

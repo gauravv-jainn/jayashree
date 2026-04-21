@@ -29,7 +29,7 @@ export function Hero() {
             </div>
 
             <div>
-              <h1 className={`text-4xl md:text-5xl font-medium leading-[48px] transition-colors duration-200 ${
+              <h1 className={`text-3xl sm:text-4xl md:text-5xl font-medium leading-[48px] transition-colors duration-200 ${
                 isDark ? 'text-white' : 'text-slate-900'
               }`}>
                 Empowering Communities Through{' '}
@@ -39,7 +39,7 @@ export function Hero() {
               </h1>
             </div>
 
-            <p className={`text-base md:text-lg font-normal leading-7 max-w-[491px] transition-colors duration-200 ${
+            <p className={`text-sm sm:text-base md:text-lg font-normal leading-7 max-w-[491px] transition-colors duration-200 ${
               isDark ? 'text-slate-300' : 'text-slate-600'
             }`}>
               Join us in creating lasting change. Jayshree Foundation brings together passionate volunteers to serve communities, provide education, healthcare, and hope to those who need it most.
@@ -66,7 +66,7 @@ export function Hero() {
               <img
                 src={heroImage}
                 alt="Community gathering"
-                className="w-full h-[300px] md:h-[500px] object-cover"
+                className="w-full h-[250px] sm:h-[400px] md:h-[500px] object-cover"
               />
             </div>
 

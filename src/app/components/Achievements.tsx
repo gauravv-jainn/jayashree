@@ -55,16 +55,16 @@ export function Achievements() {
             return (
               <div
                 key={index}
-                className={`rounded-2xl border p-6 md:p-8 flex flex-col items-center text-center hover:shadow-lg transition-all duration-200 ${
+                className={`rounded-2xl border p-4 sm:p-6 md:p-8 flex flex-col items-center text-center hover:shadow-lg transition-all duration-200 ${
                   isDark
                     ? 'bg-slate-800 border-slate-700 hover:border-slate-600'
                     : 'bg-white border-slate-200 hover:border-slate-300'
                 }`}
               >
-                <div className={`w-16 h-16 bg-gradient-to-br ${achievement.gradient} rounded-2xl shadow-lg flex items-center justify-center mb-6`}>
+                <div className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br ${achievement.gradient} rounded-2xl shadow-lg flex items-center justify-center mb-6`}>
                   <Icon className="w-8 h-8 text-white" />
                 </div>
-                <div className={`text-3xl font-normal leading-9 mb-2 transition-colors duration-200 ${
+                <div className={`text-2xl sm:text-3xl font-normal leading-9 mb-2 transition-colors duration-200 ${
                   isDark ? 'text-white' : 'text-slate-900'
                 }`}>
                   {achievement.value}
