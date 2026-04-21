@@ -46,7 +46,7 @@ export function Header() {
         </div>
 
         {/* Navigation Items */}
-        <nav className="hidden md:flex items-center gap-2 lg:gap-6">
+        <nav className="hidden lg:flex items-center gap-2 lg:gap-6">
           {navItems.map((item) => (
             <button
               key={item.path}
@@ -66,7 +66,7 @@ export function Header() {
           {/* Hamburger Menu (Mobile) */}
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className={`md:hidden w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${
+            className={`lg:hidden w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${
               isDark
                 ? 'hover:bg-slate-700 text-slate-300'
                 : 'hover:bg-slate-100 text-slate-900'
@@ -97,7 +97,7 @@ export function Header() {
 
           <button
             onClick={() => navigate('/donate')}
-            className="hidden sm:flex w-24 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-[10px] items-center justify-center gap-2 text-white text-sm font-normal hover:shadow-lg transition-shadow"
+            className="hidden lg:flex w-24 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-[10px] items-center justify-center gap-2 text-white text-sm font-normal hover:shadow-lg transition-shadow"
           >
             Donate
             <ArrowRight className="w-4 h-4" />
