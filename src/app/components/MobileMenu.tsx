@@ -39,10 +39,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
       {/* Slide-in Menu */}
       <div
-        className={`fixed inset-y-0 left-0 z-[9999] w-72 transition-all duration-300 ease-in-out overflow-y-auto ${
+        className={`fixed left-0 z-[9999] w-72 transition-all duration-300 ease-in-out overflow-y-auto ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         } ${isDark ? 'bg-slate-800' : 'bg-white'} shadow-2xl`}
-        style={{ top: '64px' }}
+        style={{ top: '64px', bottom: 0 }}
       >
         {/* Close Button */}
         <div className="p-4 flex justify-between items-center border-b">
