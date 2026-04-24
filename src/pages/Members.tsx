@@ -66,14 +66,16 @@ export default function Members() {
                     isDark ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'
                   }`}
                 >
-                  <div className="relative w-full h-48 md:h-64 bg-slate-300">
-                    {member.photoUrl && (
-                      <img
-                        src={member.photoUrl}
-                        alt={member.name}
-                        className="w-full h-full object-cover"
-                      />
-                    )}
+                  <div className="flex justify-center pt-6 pb-2">
+                    <div className="relative w-32 h-32">
+                      {member.photoUrl && (
+                        <img
+                          src={member.photoUrl}
+                          alt={member.name}
+                          className="w-full h-full object-cover rounded-full border-4 border-blue-500"
+                        />
+                      )}
+                    </div>
                   </div>
                   <div className="p-4 md:p-6">
                     <h3 className={`text-lg md:text-xl font-bold mb-1 transition-colors duration-200 ${isDark ? 'text-white' : 'text-slate-900'}`}>

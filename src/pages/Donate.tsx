@@ -9,11 +9,52 @@ export default function Donate() {
   const { isDark } = useTheme();
   const [donationType, setDonationType] = useState<'one-time' | 'recurring'>('one-time');
   const [amount, setAmount] = useState(500);
+  const [isProcessing, setIsProcessing] = useState(false);
   usePageTitle('Donate | Jayashree Foundation');
 
-  const handleDonate = () => {
-    // PhonePay integration will go here
-    console.log(`Processing ${donationType} donation of ₹${amount}`);
+  const handleDonate = async () => {
+    setIsProcessing(true);
+    try {
+      // PhonePe API integration
+      const merchantId = process.env.REACT_APP_PHONEPE_MERCHANT_ID || 'JAYASHREEFOUNDATION';
+      const apiKey = process.env.REACT_APP_PHONEPE_API_KEY;
+
+      const transactionId = `TXN${Date.now()}`;
+      const redirectUrl = `${window.location.origin}/donate?status=success`;
+
+      // PhonePe S2S API payload
+      const payload = {
+        merchantId,
+        merchantTransactionId: transactionId,
+        merchantUserId: 'JAYASHREE_USER',
+        amount: amount * 100, // Convert to paise
+        redirectUrl,
+        redirectMode: 'REDIRECT',
+        callbackUrl: `${process.env.REACT_APP_API_URL || 'http://localhost:3000'}/api/phonepe/callback`,
+        mobileNumber: '',
+        paymentInstrument: {
+          type: 'PAY_PAGE'
+        }
+      };
+
+      // Create checksum for payment
+      const payloadString = JSON.stringify(payload);
+      const base64Payload = btoa(payloadString);
+
+      // For demo, we'll redirect to PhonePe test environment
+      // In production, you'd use the actual API with proper authentication
+      const phonePeUrl = `https://mercury-uat.phonepe.com/transact?base64payload=${base64Payload}&checksum=test`;
+
+      console.log(`Processing ${donationType} donation of ₹${amount}`);
+      console.log('PhonePe Transaction ID:', transactionId);
+
+      // Redirect to PhonePe payment page
+      window.location.href = phonePeUrl;
+    } catch (error) {
+      console.error('Payment processing error:', error);
+      alert('Error processing payment. Please try again.');
+      setIsProcessing(false);
+    }
   };
 
   return (
@@ -31,6 +72,12 @@ export default function Donate() {
 
           <div className={`rounded-2xl shadow-lg p-6 md:p-8 border transition-colors duration-200 ${isDark ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'}`}>
             <div className="space-y-6">
+              {/* PhonePe Badge */}
+              <div className="flex items-center gap-2 pb-4 border-b">
+                <div className="text-sm font-medium text-slate-600">Secure Payment by</div>
+                <div className="font-bold text-blue-600">PhonePe</div>
+              </div>
+
               {/* Donation Type */}
               <div>
                 <label className={`block text-sm font-medium mb-3 transition-colors duration-200 ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
@@ -97,8 +144,13 @@ export default function Donate() {
                 />
               </div>
 
-              <Button onClick={handleDonate} size="lg" className="w-full">
-                Donate ₹{amount}
+              <Button
+                onClick={handleDonate}
+                size="lg"
+                className="w-full"
+                disabled={isProcessing}
+              >
+                {isProcessing ? 'Processing...' : `Donate ₹${amount} via PhonePe`}
               </Button>
             </div>
           </div>

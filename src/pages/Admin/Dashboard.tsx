@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Header } from '../../app/components/Header';
 import { Footer } from '../../app/components/Footer';
-import { Button } from '../../app/components/ui/button';
 import { useNavigate } from 'react-router';
 import { useTheme } from '../../hooks/useTheme';
 import { usePageTitle } from '../../hooks/usePageTitle';
@@ -51,25 +49,33 @@ export default function AdminDashboard() {
 
   return (
     <div className={`min-h-screen flex flex-col transition-colors duration-200 ${isDark ? 'bg-slate-900' : 'bg-slate-50'}`}>
-      <Header />
-
       <main className="flex-1">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 pt-32 pb-12">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 pt-12 pb-12">
           {/* Header Section */}
-          <div className="mb-12 flex items-center gap-6">
-            <img
-              src={logo}
-              alt="Jayashree Foundation"
-              className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover shadow-lg flex-shrink-0"
-            />
-            <div>
-              <h1 className={`text-4xl md:text-5xl font-bold mb-2 transition-colors duration-200 ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                Admin Dashboard
-              </h1>
-              <p className={`text-base transition-colors duration-200 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                Manage your foundation's content and operations
-              </p>
+          <div className="mb-12 flex items-center justify-between gap-6">
+            <div className="flex items-center gap-6">
+              <img
+                src={logo}
+                alt="Jayashree Foundation"
+                className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover shadow-lg flex-shrink-0 border-4 border-white"
+              />
+              <div>
+                <h1 className={`text-4xl md:text-5xl font-bold mb-2 transition-colors duration-200 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                  Admin Dashboard
+                </h1>
+                <p className={`text-base transition-colors duration-200 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                  Manage your foundation's content and operations
+                </p>
+              </div>
             </div>
+            <button
+              onClick={handleLogout}
+              className={`px-6 py-2 rounded-lg font-medium transition-colors ${
+                isDark ? 'bg-slate-800 hover:bg-slate-700 text-slate-200' : 'bg-slate-200 hover:bg-slate-300 text-slate-900'
+              }`}
+            >
+              Logout
+            </button>
           </div>
 
           {/* Quick Stats Cards */}
@@ -270,17 +276,6 @@ export default function AdminDashboard() {
                 <ArrowRight className={`w-5 h-5 transition-transform group-hover:translate-x-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`} />
               </div>
             </button>
-          </div>
-
-          {/* Logout Button */}
-          <div className="flex justify-center">
-            <Button
-              onClick={handleLogout}
-              variant="outline"
-              className="px-8 py-2"
-            >
-              Logout
-            </Button>
           </div>
         </div>
       </main>

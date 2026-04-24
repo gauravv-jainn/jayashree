@@ -33,7 +33,7 @@ export function Header() {
           <img
             src={logo}
             alt="Jayashree Foundation"
-            className="h-12 w-12 rounded-full object-cover"
+            className="h-12 w-12 rounded-full object-cover border-2 border-white"
           />
           <div className="flex-1">
             <div className={`text-sm font-normal leading-5 transition-colors duration-200 ${
