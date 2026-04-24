@@ -66,7 +66,7 @@ export default function JoinNGO() {
       // Use local backend server on port 3001 for development
       const apiUrl = window.location.hostname === 'localhost'
         ? 'http://localhost:3001/api/forms/join-ngo'
-        : '/api/forms/join-ngo';
+        : '/.netlify/functions/api/api/forms/join-ngo';
 
       const response = await fetch(apiUrl, {
         method: 'POST',
