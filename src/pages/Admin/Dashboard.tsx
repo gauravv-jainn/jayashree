@@ -70,7 +70,7 @@ export default function AdminDashboard() {
             </div>
             <button
               onClick={handleLogout}
-              className={`px-6 py-2 rounded-lg font-medium transition-colors ${
+              className={`px-6 py-2 rounded-lg font-medium transition-colors cursor-pointer ${
                 isDark ? 'bg-slate-800 hover:bg-slate-700 text-slate-200' : 'bg-slate-200 hover:bg-slate-300 text-slate-900'
               }`}
             >
@@ -170,7 +170,7 @@ export default function AdminDashboard() {
             {/* Manage Projects */}
             <button
               onClick={() => navigate('/admin/upload-project')}
-              className={`p-8 rounded-xl border text-left transition-all duration-200 group ${
+              className={`p-8 rounded-xl border text-left transition-all duration-200 group cursor-pointer ${
                 isDark
                   ? 'bg-slate-800 border-slate-700 hover:bg-slate-750 hover:border-slate-600'
                   : 'bg-white border-slate-200 hover:bg-slate-50 hover:border-blue-300'
@@ -179,10 +179,10 @@ export default function AdminDashboard() {
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <h3 className={`text-xl font-bold transition-colors duration-200 ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                    📸 Upload Projects
+                    📸 View Projects
                   </h3>
                   <p className={`text-sm mt-1 transition-colors duration-200 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                    Add, edit, and manage projects with images and impact metrics
+                    View, add, edit, and manage projects with images and impact metrics
                   </p>
                 </div>
                 <ArrowRight className={`w-5 h-5 transition-transform group-hover:translate-x-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`} />
@@ -192,7 +192,7 @@ export default function AdminDashboard() {
             {/* Manage News */}
             <button
               onClick={() => navigate('/admin/news')}
-              className={`p-8 rounded-xl border text-left transition-all duration-200 group ${
+              className={`p-8 rounded-xl border text-left transition-all duration-200 group cursor-pointer ${
                 isDark
                   ? 'bg-slate-800 border-slate-700 hover:bg-slate-750 hover:border-slate-600'
                   : 'bg-white border-slate-200 hover:bg-slate-50 hover:border-purple-300'
@@ -214,7 +214,7 @@ export default function AdminDashboard() {
             {/* Manage Gallery */}
             <button
               onClick={() => navigate('/admin/gallery')}
-              className={`p-8 rounded-xl border text-left transition-all duration-200 group ${
+              className={`p-8 rounded-xl border text-left transition-all duration-200 group cursor-pointer ${
                 isDark
                   ? 'bg-slate-800 border-slate-700 hover:bg-slate-750 hover:border-slate-600'
                   : 'bg-white border-slate-200 hover:bg-slate-50 hover:border-green-300'
@@ -236,7 +236,7 @@ export default function AdminDashboard() {
             {/* Manage Members */}
             <button
               onClick={() => navigate('/admin/members')}
-              className={`p-8 rounded-xl border text-left transition-all duration-200 group ${
+              className={`p-8 rounded-xl border text-left transition-all duration-200 group cursor-pointer ${
                 isDark
                   ? 'bg-slate-800 border-slate-700 hover:bg-slate-750 hover:border-slate-600'
                   : 'bg-white border-slate-200 hover:bg-slate-50 hover:border-orange-300'
@@ -258,7 +258,7 @@ export default function AdminDashboard() {
             {/* View Applications */}
             <button
               onClick={() => navigate('/admin/applications')}
-              className={`p-8 rounded-xl border text-left transition-all duration-200 group ${
+              className={`p-8 rounded-xl border text-left transition-all duration-200 group cursor-pointer ${
                 isDark
                   ? 'bg-slate-800 border-slate-700 hover:bg-slate-750 hover:border-slate-600'
                   : 'bg-white border-slate-200 hover:bg-slate-50 hover:border-red-300'

@@ -25,6 +25,24 @@ export function ProjectModal({ isOpen, isLoading, editingData, onClose, onSubmit
   );
   const [imagePreview, setImagePreview] = useState<string>(editingData?.imageUrl || '');
 
+  // Add CSS to hide scrollbar
+  if (isOpen) {
+    const style = document.createElement('style');
+    style.innerHTML = `
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+    `;
+    if (!document.head.querySelector('style[data-hide-scrollbar]')) {
+      style.setAttribute('data-hide-scrollbar', 'true');
+      document.head.appendChild(style);
+    }
+  }
+
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -60,14 +78,14 @@ export function ProjectModal({ isOpen, isLoading, editingData, onClose, onSubmit
     <>
       {/* Blur Background */}
       <div
-        className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm"
+        className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm cursor-pointer"
         onClick={onClose}
       />
 
       {/* Modal */}
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
         <div
-          className={`w-full max-w-2xl rounded-2xl shadow-2xl max-h-[90vh] overflow-y-auto ${
+          className={`w-full max-w-2xl rounded-2xl shadow-2xl max-h-[90vh] overflow-y-auto hide-scrollbar ${
             isDark ? 'bg-slate-800' : 'bg-white'
           }`}
           onClick={(e) => e.stopPropagation()}
@@ -81,7 +99,7 @@ export function ProjectModal({ isOpen, isLoading, editingData, onClose, onSubmit
             </h2>
             <button
               onClick={onClose}
-              className={`p-2 rounded-lg transition-colors ${
+              className={`p-2 rounded-lg transition-colors cursor-pointer ${
                 isDark ? 'hover:bg-slate-700' : 'hover:bg-slate-100'
               }`}
             >
@@ -225,7 +243,7 @@ export function ProjectModal({ isOpen, isLoading, editingData, onClose, onSubmit
               <button
                 type="button"
                 onClick={onClose}
-                className={`px-6 py-2 rounded-lg font-medium transition-colors ${
+                className={`px-6 py-2 rounded-lg font-medium transition-colors cursor-pointer ${
                   isDark
                     ? 'bg-slate-700 hover:bg-slate-600 text-slate-200'
                     : 'bg-slate-200 hover:bg-slate-300 text-slate-900'

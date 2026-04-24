@@ -176,11 +176,29 @@
     font-size: var(--text-base);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
+    @apply cursor-pointer;
+  }
+
+  a {
+    @apply cursor-pointer;
   }
 
   input {
     font-size: var(--text-base);
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
+    @apply cursor-pointer;
+  }
+
+  textarea {
+    @apply cursor-pointer;
+  }
+
+  select {
+    @apply cursor-pointer;
+  }
+
+  [role="button"] {
+    @apply cursor-pointer;
   }
 }
