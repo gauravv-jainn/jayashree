@@ -4,6 +4,7 @@ import nodemailer from 'nodemailer';
 import cors from 'cors';
 
 const app = express();
+const router = express.Router();
 
 app.use(cors());
 app.use(express.json());
@@ -16,7 +17,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-app.post('/api/forms/join-ngo', async (req, res) => {
+router.post('/forms/join-ngo', async (req, res) => {
   try {
     const formData = req.body;
 
@@ -60,5 +61,8 @@ app.post('/api/forms/join-ngo', async (req, res) => {
     res.status(500).json({ success: false, error: error.message });
   }
 });
+
+app.use('/api/', router);
+app.use('/.netlify/functions/api/', router);
 
 export const handler = serverless(app);
