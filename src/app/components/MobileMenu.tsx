@@ -1,6 +1,7 @@
 import { X } from 'lucide-react';
 import { useNavigate } from 'react-router';
 import { useTheme } from '../../hooks/useTheme';
+import { createPortal } from 'react-dom';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -25,29 +26,24 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     onClose();
   };
 
-  if (!isOpen) return null;
+  // Removed early return so CSS classes can handle the visibility logic
+  // if (!isOpen) return null;
 
-  return (
+  return createPortal(
     <>
       {/* Backdrop */}
       <div
         className={`fixed inset-0 z-[9998] transition-opacity duration-200 ${
           isOpen ? 'opacity-50' : 'opacity-0 pointer-events-none'
-        } ${isDark ? 'bg-black' : 'bg-black'}`}
+        } bg-black`}
         onClick={onClose}
       />
 
       {/* Slide-in Menu */}
       <div
-        className={`fixed z-[9999] w-72 transition-all duration-300 ease-in-out overflow-y-auto ${
+        className={`fixed z-[9999] top-0 left-0 h-[100dvh] w-72 flex flex-col transition-transform duration-300 ease-in-out overflow-y-auto ${
           isDark ? 'bg-slate-800' : 'bg-white'
-        } shadow-2xl`}
-        style={{
-          top: '64px',
-          bottom: 0,
-          left: 0,
-          transform: isOpen ? 'translateX(0)' : 'translateX(-100%)',
-        }}
+        } shadow-2xl ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
       >
         {/* Close Button */}
         <div className="p-4 flex justify-between items-center border-b">
@@ -91,6 +87,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           </button>
         </div>
       </div>
-    </>
+    </>,
+    document.body
   );
 }
