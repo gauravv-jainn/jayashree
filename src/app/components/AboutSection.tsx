@@ -3,6 +3,7 @@ import { useTheme } from '../../hooks/useTheme';
 
 export function AboutSection() {
   const { isDark } = useTheme();
+  const contactEmail = import.meta.env.VITE_CONTACT_EMAIL;
 
   return (
     <section className={`px-4 md:px-8 py-12 md:py-20 transition-colors duration-200 ${
@@ -105,7 +106,7 @@ export function AboutSection() {
                   }`}>Email</div>
                   <div className={`text-sm font-normal leading-5 transition-colors duration-200 ${
                     isDark ? 'text-slate-300' : 'text-slate-600'
-                  }`}>info.jayashreefoundation@gmail.com</div>
+                  }`}>{contactEmail}</div>
                 </div>
               </div>
             </div>

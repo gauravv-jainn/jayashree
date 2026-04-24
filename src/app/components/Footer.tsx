@@ -6,6 +6,7 @@ import logo from '../../assets/jayashree-logo.png';
 export function Footer() {
   const navigate = useNavigate();
   const { isDark } = useTheme();
+  const contactEmail = import.meta.env.VITE_CONTACT_EMAIL;
 
   const currentYear = new Date().getFullYear();
   const socialLinks = [
@@ -13,7 +14,7 @@ export function Footer() {
     { icon: Twitter, label: 'Twitter', href: '#' },
     { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/jayashree_foundation?igsh=aDQ4czhrN241cHE4' },
     { icon: Linkedin, label: 'LinkedIn', href: '#' },
-    { icon: Mail, label: 'Email', href: 'mailto:info.jayashreefoundation@gmail.com' },
+    { icon: Mail, label: 'Email', href: `mailto:${contactEmail}` },
   ];
 
   return (

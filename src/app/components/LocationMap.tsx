@@ -25,15 +25,19 @@ export function LocationMap({
     facebook: 'https://facebook.com/jayashreefoundation',
     twitter: 'https://twitter.com/jayashreefdn',
     linkedin: 'https://linkedin.com/company/jayashree-foundation',
-    email: 'info.jayashreefoundation@gmail.com',
   },
 }: LocationMapProps) {
   const { isDark } = useTheme();
+  const contactEmail = import.meta.env.VITE_CONTACT_EMAIL;
+  const mergedSocialLinks = {
+    ...socialLinks,
+    email: socialLinks.email ?? contactEmail,
+  };
 
   const mapsUrl = 'https://maps.app.goo.gl/6ogYQotHceBX6B3m6';
   const whatsappUrl = `https://wa.me/${whatsapp}?text=Hello%20Jayashree%20Foundation`;
   const phoneUrl = `tel:${phone}`;
-  const emailUrl = `mailto:${socialLinks.email}`;
+  const emailUrl = `mailto:${mergedSocialLinks.email}`;
 
   return (
     <section className={`px-4 md:px-8 py-12 md:py-20 transition-colors duration-200 ${
@@ -146,9 +150,9 @@ export function LocationMap({
                 Follow Us
               </p>
               <div className="flex items-center gap-3">
-                {socialLinks.facebook && (
+                {mergedSocialLinks.facebook && (
                   <a
-                    href={socialLinks.facebook}
+                    href={mergedSocialLinks.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`w-10 h-10 p-0 rounded-lg flex items-center justify-center leading-none transition-colors ${
@@ -159,9 +163,9 @@ export function LocationMap({
                     <Facebook className={`w-5 h-5 ${isDark ? 'text-slate-300' : 'text-slate-600'}`} />
                   </a>
                 )}
-                {socialLinks.twitter && (
+                {mergedSocialLinks.twitter && (
                   <a
-                    href={socialLinks.twitter}
+                    href={mergedSocialLinks.twitter}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`w-10 h-10 p-0 rounded-lg flex items-center justify-center leading-none transition-colors ${
@@ -172,9 +176,9 @@ export function LocationMap({
                     <Twitter className={`w-5 h-5 ${isDark ? 'text-slate-300' : 'text-slate-600'}`} />
                   </a>
                 )}
-                {socialLinks.linkedin && (
+                {mergedSocialLinks.linkedin && (
                   <a
-                    href={socialLinks.linkedin}
+                    href={mergedSocialLinks.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`w-10 h-10 p-0 rounded-lg flex items-center justify-center leading-none transition-colors ${
@@ -185,7 +189,7 @@ export function LocationMap({
                     <Linkedin className={`w-5 h-5 ${isDark ? 'text-slate-300' : 'text-slate-600'}`} />
                   </a>
                 )}
-                {socialLinks.email && (
+                {mergedSocialLinks.email && (
                   <a
                     href={emailUrl}
                     className={`w-10 h-10 p-0 rounded-lg flex items-center justify-center leading-none transition-colors ${

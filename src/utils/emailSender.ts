@@ -3,6 +3,8 @@
 
 import nodemailer from 'nodemailer';
 
+const contactEmail = import.meta.env.VITE_CONTACT_EMAIL;
+
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -16,7 +18,7 @@ export async function sendJoinNGOEmail(formData: any) {
     // Email to organization
     await transporter.sendMail({
       from: process.env.NODEMAILER_EMAIL,
-      to: process.env.NODEMAILER_EMAIL,
+      to: contactEmail,
       subject: `New Membership Application from ${formData.fullName}`,
       html: `
         <h2>New Membership Application</h2>
